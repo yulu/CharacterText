@@ -69,7 +69,8 @@ class CharacterTextView: UITextView, NSLayoutManagerDelegate {
         let wordRange = NSMakeRange(0, self.attributedText.length);
         let attributedString = self.internalAttributedText();
         
-        for var index = wordRange.location; index < wordRange.length+wordRange.location; index += 0 {
+        var index = wordRange.location;
+        while index < wordRange.length+wordRange.location {
             let glyphRange = NSMakeRange(index, 1);
             let characterRange = layoutManager.characterRangeForGlyphRange(glyphRange, actualGlyphRange:nil);
             let textContainer = layoutManager.textContainerForGlyphAtIndex(index, effectiveRange: nil);

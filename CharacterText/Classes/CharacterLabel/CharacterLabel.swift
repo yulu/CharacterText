@@ -128,7 +128,8 @@ class CharacterLabel: UILabel, NSLayoutManagerDelegate {
         let attributedString = self.internalAttributedText();
         let layoutRect = layoutManager.usedRectForTextContainer(textContainer);
         
-        for var index = wordRange.location; index < wordRange.length+wordRange.location; index += 0 {
+        var index = wordRange.location;
+        while index < wordRange.length+wordRange.location {
             let glyphRange = NSMakeRange(index, 1);
             let characterRange = layoutManager.characterRangeForGlyphRange(glyphRange, actualGlyphRange:nil);
             let textContainer = layoutManager.textContainerForGlyphAtIndex(index, effectiveRange: nil);
